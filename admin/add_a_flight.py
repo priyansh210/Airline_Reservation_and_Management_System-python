@@ -1,12 +1,10 @@
 
 import pandas as pd
 import menu.adminmenu as adminmenu
-import mysql.connector as mysqlconn
+import sql
+mycursor=sql.mycursor
+mydb=sql.mydb
 
-
-mydb=mysqlconn.connect(host='localhost',user='root',passwd='aeroplaneA1')
-mycursor=mydb.cursor()
-mycursor.execute(" use airline_test2 ")
 
 def add_flight():
     fd=[]
@@ -35,7 +33,7 @@ def add_flight():
     arrival=input("ENTER ARRIVAL TIME : ")
     fd.append(arrival)
     
-    date=input("ENTER THE DATE OF FLIGHT : ")
+    date=input("ENTER THE DATE OF FLIGHT (YYYY-MM-DD): ")
     fd.append(date)
     
     economy=float(input("ENTER ECONOMY CLASS SEAT PRICE :"))
